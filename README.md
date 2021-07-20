@@ -19,45 +19,37 @@ The expenses for buying computing resources for hosting your computing solutions
 With a *pay-as-you-go* model (pay for the resources you are currently using), the hosting costs usually are better than if you had your own on-premises infrastructure. It also removes you the need for an upfront huge expense of buying the necessary hardware, e.g.: instead of spending thousands beforehand for buying the necessary servers and databases, you can simply use them at the cloud and pay as you use for really small prices, such as a few cents per GB per month.
 
 ## Cloud Models
-- SAAS (Software as a service) is when a software is being provided as a service,
-usually with a signature involved, e.g.: Office 365. You don't own the software
-nor the code. You use an already developed and published software. You use it
-through the Internet, so you don't need to install it. You use it as a service.
-You can't change or configurate the software - you can only use what it provides you.
-You can't change the virtualized environment where this software is at as well.
+### SAAS (Software-as-a-Service)
+When a software is being provided as a service.
+> Example: Office 365
 
-- PAAS (Platform as a service) is when a platform is provided as a service.
-A platform can also be a software, but you have a type of "environment" around it
-which you can manipulate and manage.
-It's not only creating a document or asking for a calculation.
-You're managing the environment, making operations e.g. to make big calculations
-across different documents. You still don't have the power to control the OS or
-the virtualized environment where the platform is at.
-E.g.: SQL Server
+You don't own the software nor the code. You use an already developed and published software. You use it
+through the Internet, so you don't need to install it. You can't change or configure the software - you can only use what it is provided to you. You can't change the environment where this software is published as well.
 
-- IAAS (Infrastructure as a service) is when the infrastructure is provided as a service.
-You can configurate the base of all your application. You can define its OS,
-its firewall, etc. You can configure the virtual infrastructure where your 
-softwares or platforms will be hosted at.
-E.g.: Virtual Machines and Operational System.
-You can't control the physical domain (e.g.: routers, CPU, graphic disks, etc).
+### PAAS (Platform-as-a-Service)
+When a platform is provided as a service.
+> Example: SQL Server
 
-- Serverless is still a server based model, but it's named that way because it's 
-meant to be dynamic. You don't need to scale manually like on PAAS - the serverless
-model will do that for you. You don't need to specify which model are you using,
-which price plan you need, etc. The serverless model manages everything for you.
+The idea is to have a whole framework being provided as a service, where you can manage and configure it. You're not only using creating a document or asking for a calculation. Instead of using a fully developed solution (as in *SaaS*), you're using a platform that allows you to create your own customized applications.
+
+### IAAS (Infrastructure-as-a-Service)
+When the infrastructure is provided as a service.
+> Example: Virtual Machines
+
+Infrastructure, in this case, means compute resources. The IaaS provides you the necessary infrastructure without the need of you buying the correspondent hardware for it. You can define, for example, on which OS will your application run or what are the network rules within your environment. The whole environment is provided by virtualization technology - this means you can't control the physical domain (e.g.: routers, CPU, graphic disks, etc).
+
+## Serverless
+On the contrary of what the name indicates, the *Serverless* model still is a server based model. It's named like that because it's meant to be dynamic: in this model you have the least configuration needed. The model automatically knows when it's needed to scale up or down (different from the other models, where you have the responsibility of configuring it). This behavior has some cons, one of the most important being the cost effectiveness: if the heavy workload at a specific period of time is always expected, having the traditional servers can be more cost effective than having a serverless solution.
 
 ## Cloud Types
-- Public cloud
-A cloud that anyone can sign to and start using.
-You share the resources with other customers of the cloud provider,
-e.g.: the hardware hosting your cloud and another cloud is the same.
+### Public cloud
+A cloud that anyone can sign to and start using. You share the compute resources with other customers of the cloud provider.
+> Example: you sign up for Microsoft Azure and deploy your application to their cloud; the machine that hosts your application also hosts other Microsoft customers' applications.
 
-- Private cloud
-The hardware is owned or leased by a single company, or at least only used by this company.
+### Private cloud
+A cloud where you're the compute resources that hosts your applications are totally owned by your company or at least only leased to your company.
+> Example: you bought your own servers to host your applications or you lease a server to be used only by you in Azure, in other words, no other Microsoft customer has any application hosted in this server except you.
 
-- Hybrid cloud
-Combination of both clouds. You can configure only the infrastructure to the private cloud
-and keep all the rest (apps, platforms, etc.) in the public cloud. 
-
-## Azure Subscriptions
+### Hybrid cloud
+A combination of both clouds, where you can define a part of your compute resources to be private and use the other part in the public cloud.
+> Example: you can have your own on-premises server that hosts your database (private cloud) and host your application on the Azure servers where other Microsoft clients also have applications being hosted (public cloud).
