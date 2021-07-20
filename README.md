@@ -66,6 +66,7 @@ You can deploy your resource in multiple regions to, for example, have a backup 
 ### Specific rules for regions
 Some regions have their own restrictions, so you may not be allowed to deploy your application on every Azure region.
 > Example: you can't deploy your resource to the Azure China region because they have their own restrictions - in order to do so, you need to have a specific agreement with the Chinese company that manages Azure China.
+
 > Example 2: you can't deploy your resources to the governmental regions unless you're an employee of that governmental organization. If you are their employee, on the other hand, you can **only** have access to the governmental regions.
 
 ### Pairs
@@ -73,7 +74,9 @@ Each region has another region that is treated as its pair. This is done so you 
 
 It's almost always found in the same geographic place, but it may happen that there's no other region to be paired with, so it it's paired with some other region that it's may not be near the same geographic place. It can also happen that one region is a pair of one or more other regions.
 > Example: two European regions are the *North Europe* and *West Europe*, and they're a pair
+
 > Example 2: Brazil only has one region, *Brazil South*, so its pair is not located near Brazil but it's in US instead, the *South Central US*
+
 > Example 3: both *East US 2* and *Brazil South* are paired with *South Central US*, but note that each combination is a separate pair - this means that *East US 2* is **not** paired with *Brazil South*, only with *South Central US*
 
 ### Availability Zones
