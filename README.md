@@ -1,6 +1,8 @@
 # Microsoft Azure Fundamentals - AZ-900
 This repository contains the results of **my** studies and understanding regarding the *[Exam AZ-900: Microsoft Azure Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/exams/az-900)*.
 
+# Basic concepts
+
 ## What is the cloud
 *Cloud Computing* is the term used for defining on-demand availability of computer system resources.
 
@@ -53,3 +55,28 @@ A cloud where you're the compute resources that hosts your applications are tota
 ### Hybrid cloud
 A combination of both clouds, where you can define a part of your compute resources to be private and use the other part in the public cloud.
 > Example: you can have your own on-premises server that hosts your database (private cloud) and host your application on the Azure servers where other Microsoft clients also have applications being hosted (public cloud).
+
+# Azure Architectural Components
+
+## Regions
+Regions are the way Microsoft Azure organize geographical locations in the world where their servers exist. There are currently over 60 regions.
+You can deploy your resource in multiple regions to, for example, have a backup if a region goes down or to improve your resource usability.
+> Example: if you only have customers in the US, you can use one of the US regions. If you also have customers in Spain, the Spanish customers that access your resource are going to have latency since the information needs to travel from US to Spain. It may be better to also deploy your resource in Europe as well, so the customers can get the resource from a closer place. If the European region goes down, the customers will still be able to access your resource from US, serving as a backup for them.
+
+### Specific rules for regions
+Some regions have their own restrictions, so you may not be allowed to deploy your application on every Azure region.
+> Example: you can't deploy your resource to the Azure China region because they have their own restrictions - in order to do so, you need to have a specific agreement with the Chinese company that manages Azure China.
+> Example 2: you can't deploy your resources to the governmental regions unless you're an employee of that governmental organization. If you are their employee, on the other hand, you can **only** have access to the governmental regions.
+
+### Pairs
+Each region has another region that is treated as its pair. This is done so you can deploy your resource in two regions in case of a backup is needed (e.g.: the resource in one region is down, so the resource in the second region can be served as a temporary backup for it).
+
+It's almost always found in the same geographic place, but it may happen that there's no other region to be paired with, so it it's paired with some other region that it's may not be near the same geographic place. It can also happen that one region is a pair of one or more other regions.
+> Example: two European regions are the *North Europe* and *West Europe*, and they're a pair
+> Example 2: Brazil only has one region, *Brazil South*, so its pair is not located near Brazil but it's in US instead, the *South Central US*
+> Example 3: both *East US 2* and *Brazil South* are paired with *South Central US*, but note that each combination is a separate pair - this means that *East US 2* is **not** paired with *Brazil South*, only with *South Central US*
+
+### Availability Zones
+A group of zones inside a region. Availability zones are usually located on the same property but different buildings, having their own power, heating & cooling systems and runs on their own network. Therefore, they are completely separated physically.
+
+The logic behind availability zones is the same as the regions: they're made so you can have backups in case any availability zone goes down. If you don't choose an availability zone for your resource, Azure will choose one of them for you.
