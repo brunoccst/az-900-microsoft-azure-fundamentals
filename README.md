@@ -82,4 +82,34 @@ It's almost always found in the same geographic place, but it may happen that th
 ### Availability Zones
 A group of zones inside a region. Availability zones are usually located on the same property but different buildings, having their own power, heating & cooling systems and runs on their own network. Therefore, they are completely separated physically.
 
-The logic behind availability zones is the same as the regions: they're made so you can have backups in case any availability zone goes down. If you don't choose an availability zone for your resource, Azure will choose one of them for you.
+Having your resources published in multiple availability zones improves resource availability since each availability zone works as a backup in case one goes down. Using multiple availability zones also prevents getting your resources down whenever Azure is updating or fixing its availability zones.
+> Example: you published a web app in the *US East* region at the availability zones 1 and 2. If the availability zone 1 goes down because of a power outage, your app will still be available because the availability zone 2 is still up.
+
+> Example 2: Azure needs to update their products (e.g.: hardware). They will only update one availability zone per time so your application goes down for the minimum needed time/doesn't go down at all because the other availability zone is still running.
+
+If you don't choose an availability zone for your resource, Azure will choose one of them for you.
+
+## Hierarchy 
+The Azure management hierarchy can be defined as the image below:
+![](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/media/organize-resources/scope-levels.png)
+
+The next topics will explain each of the levels of the hierarchy in the ascendant order (from the bottom to the top).
+
+### Resources
+Resources are all manageable items available through Azure.
+> Example: Every *SaaS*, *PaaS*, *IaaS* or *serverless* computing that you use from Azure is a resource, such as VMs, web apps, databases, tags, subscriptions, etc.
+
+Each one of them has its own cost, which takes in consideration the base costs plus external factors (such as pricing plan and other configurations you can set).
+
+### Resource groups
+A container that groups resources for an Azure solution. You can define how you want to group the resources, usually done in a way that makes sense for your organization logically.
+> Example: you have an web application that also needs its own telemetry service and a functions app. Those three resources (the web application, the telemetry service and the functions app) can be grouped into the same resource group to make it easier to manage all of them together.
+
+### Subscriptions
+A subscription can be defined as a *billing unit*. It's where the bills for all the used resources are sent to. Each subscription is linked to a credit card for the billing, but the same credit card can be reused in more than one subscription. The bill for each respective subscription will be sent separately - this means that, even if you reuse the same credit card on  multiple subscriptions, you're going to receive a different bill related to each subscription.
+
+Subscriptions can also have different user roles, such as *owner*, *global administrator*, *contributor* or a simple user. Those roles can be used to give the correct rights to the correct users.
+
+### Management groups
+Management groups serve the purpose of grouping subscriptions or even other management groups for a better organization.
+> Example: your company has a development team and a marketing team. You can have a root management group called *root management group*, then inside of it there is a *marketing management group*, that has one subscription, and an *IT management group*, that has two subscriptions.
