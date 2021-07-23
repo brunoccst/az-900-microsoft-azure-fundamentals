@@ -91,6 +91,7 @@ If you don't choose an availability zone for your resource, Azure will choose on
 
 ## Hierarchy 
 The Azure management hierarchy can be defined as the image below:
+
 ![](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/media/organize-resources/scope-levels.png)
 
 The next topics will explain each of the levels of the hierarchy in the ascendant order (from the bottom to the top).
