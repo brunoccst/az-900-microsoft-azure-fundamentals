@@ -89,12 +89,17 @@ Having your resources published in multiple availability zones improves resource
 
 If you don't choose an availability zone for your resource, Azure will choose one of them for you.
 
-## Hierarchy 
+## Azure Resource Manager (ARM)
 The Azure management hierarchy can be defined as the image below:
 
 ![](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/media/organize-resources/scope-levels.png)
 
-The next topics will explain each of the levels of the hierarchy in the ascendant order (from the bottom to the top).
+All of the resources are managed by the Azure Resource Manager (ARM), which can be accessed by three different ways:
+* On browser, via the Azure Portal
+* On your command line, via the Azure Command Line or Azure Power Shell
+* On your Visual Studio IDE, as a REST client
+
+The next topics will explain each of the levels of the hierarchy in the ascendant order (from the bottom to the top). Note that the lower levels inherits settings from the higher levels.
 
 ### Resources
 Resources are all manageable items available through Azure.
@@ -114,3 +119,23 @@ Subscriptions can also have different user roles, such as *owner*, *global admin
 ### Management groups
 Management groups serve the purpose of grouping subscriptions or even other management groups for a better organization.
 > Example: your company has a development team and a marketing team. You can have a root management group called *root management group*, then inside of it there is a *marketing management group*, that has one subscription, and an *IT management group*, that has two subscriptions.
+
+## Compute resources
+The meaning of "*compute*" is the computer is executing code - it can be your company's code or a third party application.
+This section describe the Azure resources that are responsible for executing computing tasks.
+
+### Virtual Machines (VM)
+A "slice" of a physical machine shared with other customers. It acts and behaves as its own physical machine, but virtualized into its single piece, so you can have multiple virtual machines in the same physical machine. It's considered an **IaaS**.
+
+You can configure it according to your needs, such as defining the number of CPU cores, CPU speed, RAM size and so on, such as in a physical machine.
+
+### App Services (Web apps)
+A paradigm for running code in the cloud. In other words, you provide your code to the cloud, which will then run it. You can't change the hardware, but you can choose the plan, which will impact the performance and the costs. It's considered a **PaaS**.
+
+Some examples are the application 
+
+### Azure Containers Instances (ACI)
+
+### Azure Kubernetes Service (AKS)
+
+### Windows Virtual Desktop
